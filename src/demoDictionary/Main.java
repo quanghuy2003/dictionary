@@ -6,8 +6,8 @@ public class Main {
         System.out.println(myDictionary.getDictionary());
         myDictionary.addWord("cake","bánh ngọt");
         System.out.println(myDictionary.getDictionary());
-        System.out.println(myDictionary.translate("house"));
-        System.out.println(myDictionary.translate("wall"));
+        System.out.println(myDictionary.translate("        HOUse       "));
+        System.out.println(myDictionary.translate("ngôi nhà"));
     }
 
 }

@@ -1,6 +1,7 @@
 package demoDictionary;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Dictionary {
     private HashMap<String,String> dictionary;
@@ -27,9 +28,10 @@ public class Dictionary {
         System.out.println("Đã thêm thành công");
     }
     public String translate(String key){
-        boolean isContainKey = this.dictionary.containsKey(key);
+        String wordWithNoSpace = key.trim().toLowerCase(Locale.ROOT);
+        boolean isContainKey = this.dictionary.containsKey(wordWithNoSpace);
         if(isContainKey){
-            return "Nghĩa của từ " + key + " là " + this.dictionary.get(key);
+            return "Nghĩa của từ " + wordWithNoSpace + " là " + this.dictionary.get(wordWithNoSpace);
         }else return "không tìm thấy từ này";
     }
     public HashMap<String, String> getDictionary() {
