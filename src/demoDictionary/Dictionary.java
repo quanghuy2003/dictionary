@@ -23,15 +23,18 @@ public class Dictionary {
         this.dictionary.put("car", "oto");
         this.dictionary.put("plane", "máy bay");
     }
+    public String fixWord(String word){
+       return word.trim().toLowerCase(Locale.ROOT);
+    }
     public void addWord(String key, String value){
-        this.dictionary.put(key, value);
+        this.dictionary.put(fixWord(key), fixWord(value));
         System.out.println("Đã thêm thành công");
     }
     public String translate(String key){
-        String wordWithNoSpace = key.trim().toLowerCase(Locale.ROOT);
-        boolean isContainKey = this.dictionary.containsKey(wordWithNoSpace);
+        String fixedWord = fixWord(key);
+        boolean isContainKey = this.dictionary.containsKey(fixedWord);
         if(isContainKey){
-            return "Nghĩa của từ " + wordWithNoSpace + " là " + this.dictionary.get(wordWithNoSpace);
+            return "Nghĩa của từ " + fixedWord + " là " + this.dictionary.get(fixedWord);
         }else return "không tìm thấy từ này";
     }
     public HashMap<String, String> getDictionary() {
